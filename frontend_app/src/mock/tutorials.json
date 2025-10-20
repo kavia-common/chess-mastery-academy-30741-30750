@@ -1,0 +1,5 @@
+[
+  { "id": "t1", "title": "The Italian Game", "summary": "An introduction to the Italian opening.", "duration": "8 min" },
+  { "id": "t2", "title": "Queen's Gambit", "summary": "Exploring ideas in the Queen's Gambit.", "duration": "10 min" },
+  { "id": "t3", "title": "Endgame Basics", "summary": "King and pawn endgames.", "duration": "7 min" }
+]

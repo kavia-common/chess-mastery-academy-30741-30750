@@ -1,47 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import './styles/theme.css';
+import './styles/utilities.css';
+import Router from './router/Router';
+import Header from './layout/Header';
+import Navigation from './layout/Navigation';
+import Sidebar from './layout/Sidebar';
+import Footer from './layout/Footer';
+import { StoreProvider } from './state/store';
 
-// PUBLIC_INTERFACE
+/**
+ * Root application shell that composes layout and routes.
+ * Applies Ocean Professional theme classes and provides global state context.
+ */
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-root bg-app min-h-screen text-app">
+      <StoreProvider>
+        <Header />
+        <Navigation />
+        <main className="app-main container">
+          <div className="app-content">
+            <div className="app-page" role="region" aria-label="Main content">
+              <Router />
+            </div>
+            <aside className="app-sidebar" aria-label="Progress and resources">
+              <Sidebar />
+            </aside>
+          </div>
+        </main>
+        <Footer />
+      </StoreProvider>
     </div>
   );
 }

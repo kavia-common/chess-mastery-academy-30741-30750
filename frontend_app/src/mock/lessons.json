@@ -1,0 +1,6 @@
+[
+  { "id": "l1", "title": "Introduction to Pieces", "description": "Learn how each piece moves.", "level": "Beginner" },
+  { "id": "l2", "title": "Control the Center", "description": "Central squares and their importance.", "level": "Beginner" },
+  { "id": "l3", "title": "Basic Tactics", "description": "Pins, forks, and skewers.", "level": "Intermediate" },
+  { "id": "l4", "title": "Opening Principles", "description": "Develop pieces and king safety.", "level": "Intermediate" }
+]
